@@ -1,5 +1,5 @@
-let User = require('../models/User.js');
-let List = require('../models/List.js');
+const { User } = require('../database');
+const { List } = require('../database');
 
 async function createUser(req, res, next) {
     console.log('creating user')
@@ -113,6 +113,7 @@ async function createList(req, res, next) {
         let listName = req.body.name;
         let listDescription = req.body.description;
         let userId = req.session.userId;
+        console.log('userId: ', userId)
         const list = await List.insertList(listName, listDescription, userId);
 
         if (!list) {
@@ -137,6 +138,7 @@ async function getLists(req, res, next) {
             res.status(401).json({ message: "Unable to fetch lists" })
             return
         }
+        console.log('we in thereeeerr')
         return res.status(200).json(lists)
 
     } catch (err) {
@@ -158,11 +160,25 @@ async function deleteSelectedList(req, res, next) {
 }
 
 
+async function logout(req, res, next) {
+    console.log('running logout')
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).json({ message: err.message + "logout didn't work" })
+        }
+
+        res.clearCookie('sid');
+        res.redirect('/user/login');
+    });
+}
+
+
 module.exports = {
     createUser,
     getUsers,
     removeUser,
     login,
+    logout,
     checkAuth,
     createList,
     getLists,
