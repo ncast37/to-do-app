@@ -28,6 +28,11 @@ app.get('/', (req, res) => {
 });
 
 //user account routes
+app.get('/', (req, res) => {
+    //return index.html
+
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 app.post('/user/signup', createUser);
 app.get('/users/', getUsers);
 app.delete('/user/delete/:id', removeUser);
