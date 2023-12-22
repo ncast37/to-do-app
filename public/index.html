@@ -37,16 +37,49 @@
 
     </header>
     <main>
-        <div class="main">
-            <div class="container">
-                <div class="main-content">
-                    <ul class="auth-links">
-                        <li><a href="">Sign up</a></li>
-                        <li><a href="">Login</a></li>
-                    </ul>
-                </div>
+        <!-- Will change after authentication to UI list buttons -->
+
+        <!-- <div class="main-auth container">
+            <ul class="auth-links">
+                <li class=""><a class="auth-btn" href="#">Sign up</a></li>
+                <li class=""><a class="auth-btn" href="#">Login</a></li>
+            </ul>
+        </div> -->
+
+        <!-- Will change after authentication to UI list buttons -->
+        <div class="auth d-flex-column">
+            <div class="auth-header">
+                <h2 class="auth-header__title">Sign Up</h2>
+                <p class="auth-header__text">To start making Lists</p>
             </div>
-        </div>
+            <form action="" class="d-flex-column">
+                <div class="auth-username-field d-flex-column">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="auth-email-field d-flex-column">
+                    <label for="email">email</label>
+                    <input type="text" name="email" id="email">
+                </div>
+                <div class="auth-password-field d-flex-column">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                    <!-- labels that describe password requirements  -->
+                    <!-- Must have 1 Uppercase, 1 Lowercase, 1 special char, and be longer than 8 characters -->
+                    <small id="password-req-upper-text" class="password-req-good">At least one uppercase letter</small>
+                    <small id="password-req-lower-text" class="password-req-bad">At least one lowercase letter</small>
+                    <small id="password-req-spec-text" class="password-req">At least one special character</small>
+                    <small id="password-req-length-text" class="password-req">Contains at least 8 characters</small>
+                </div>
+
+                <div class="submit-btn-container d-flex-column">
+                    <button class="submit-btn" type="submit">Sign Up</button>
+                    <small class="account-question">Already have an account?</small>
+                </div>
+            </form>
+
+
+
     </main>
     <footer>
         <div class="footer">
