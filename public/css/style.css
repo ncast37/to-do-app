@@ -7,7 +7,8 @@
     --primary-color: #2d2d2d;
     --secondary-color: #f2f2f2;
     --header-bottom-padding: 1em;
-    --primary-color-light: #3d3d3d;
+    --primary-color-light: #c8c6c6;
+    --alternate-color-blue: blue;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -15,6 +16,7 @@ li,
 a {
     text-decoration: none;
     list-style: none;
+    color: var(--secondary-color);
 }
 
 html {
@@ -85,7 +87,14 @@ main {
     flex: 1;
     display: grid;
     background-color: var(--primary-color-light);
-    grid-template: 1fr 4fr / 1fr 4fr 1fr;
+    grid-template: .5fr 3fr .5fr/ 1fr 4fr 1fr;
+}
+
+.main-auth {
+    grid-row: 1 /2;
+    grid-column: 2 / 3;
+    padding: 1.5em 0;
+    max-width: 320px;
 }
 
 .footer {
@@ -93,6 +102,99 @@ main {
     color: var(--secondary-color);
     padding: 1em 0;
 }
+
+.auth {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    background-color: var(--secondary-color);
+    padding: 1.5em 1em;
+    min-width: 253px;
+    border-radius: 8px;
+    margin: 0 auto;
+    gap: 1em;
+}
+
+.auth-header {
+    color: var(--primary-color);
+
+}
+
+.auth-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.auth-links li {
+    min-width: 100px;
+}
+
+.auth-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: .6em 1.2em;
+}
+
+.password-req {
+    color: var(--primary-color);
+}
+
+.password-req-good {
+    color: #4A730D;
+}
+
+.password-req-bad {
+    color: #FF0000;
+
+}
+
+.submit-btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 2.5em auto 0 auto;
+    width: 100%;
+}
+
+.auth-header__title {
+    color: var(--alternate-color-blue);
+}
+
+.auth-header__text {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--alternate-color-blue);
+    border: none;
+    font-size: 1.2rem;
+    padding: .5em 1em;
+    cursor: pointer;
+    border-radius: 2px;
+    color: whitesmoke;
+}
+
+.submit-btn:hover {
+    background-color: #0e0e9c;
+}
+
+.account-question {
+    font-style: italic;
+    text-decoration: underline;
+    margin-top: .5em;
+    cursor: pointer;
+}
+
+.account-question:hover {
+    color: var(--alternate-color-blue);
+}
+
+
 
 @media screen and (min-width: 768px) {
     .container {
@@ -126,6 +228,16 @@ main {
     main {
         grid-template: 1fr 4fr 1fr/ 1fr 4fr 1fr;
     }
+
+    .main-auth {
+        max-width: 320px;
+    }
+
+    .auth {
+        min-width: 320px;
+    }
+
+
 }
 
 
@@ -142,7 +254,18 @@ main {
     justify-content: space-between;
 }
 
+
 .d-flex-column {
     display: flex;
     flex-direction: column;
+}
+
+.d-flex-column-space-around {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.center-margin-h {
+    margin: 0 auto;
 }
