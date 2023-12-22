@@ -18,7 +18,7 @@ async function createUser(req, res, next) {
     }
 
     if (!email) {
-        res.status(400).json({ message: "Password is required" })
+        res.status(400).json({ message: "Email is required" })
         return
     }
 
