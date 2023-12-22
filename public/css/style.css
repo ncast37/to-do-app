@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* variable */
+    --primary-color: #2d2d2d;
+    --secondary-color: #f2f2f2;
+    --header-bottom-padding: 1em;
+    --primary-color-light: #3d3d3d;
+    font-family: 'Poppins', sans-serif;
+}
+
+li,
+a {
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    height: 100%;
+    min-width: 290px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.banner {
+    background-color: var(--primary-color);
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    /* background-color: blue; */
+}
+
+.banner__text {
+    width: 85%;
+    color: var(--secondary-color);
+    min-width: 253px;
+    padding-top: 2em;
+}
+
+.hamburger-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+    gap: 4px;
+    width: fit-content;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.hamburger-line {
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+.banner__nav {
+    flex-grow: 1;
+    justify-self: flex-end;
+    align-self: flex-end;
+    padding-bottom: 5px;
+
+}
+
+.nav-menu {
+    display: none;
+}
+
+main {
+    flex: 1;
+    display: grid;
+    background-color: var(--primary-color-light);
+    grid-template: 1fr 4fr / 1fr 4fr 1fr;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1em 0;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 1200px;
+    }
+
+    .banner__text {
+
+        width: 60%;
+    }
+
+    .banner__nav {
+        width: 40%;
+        margin-top: auto;
+        margin-left: auto;
+        max-width: 300px;
+    }
+
+    .hamburger-button {
+        margin: 0 0 0 auto;
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-end;
+        color: var(--secondary-color);
+    }
+
+    main {
+        grid-template: 1fr 4fr 1fr/ 1fr 4fr 1fr;
+    }
+}
+
+
+
+
+.d-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.d-flex-row-space-around {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
+}
