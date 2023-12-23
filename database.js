@@ -1,6 +1,6 @@
 // database.js
 const { Sequelize } = require('sequelize');
-const config = require('./config');
+const config = require('./src/configs/config');
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
@@ -8,9 +8,9 @@ const sequelize = new Sequelize({
 });
 
 // Import models
-const User = require('./models/User')(sequelize);
-const List = require('./models/List')(sequelize);
-const Item = require('./models/Item')(sequelize);
+const User = require('./src/models/User')(sequelize);
+const List = require('./src/models/List')(sequelize);
+const Item = require('./src/models/Item')(sequelize);
 
 // Define associations
 User.hasMany(Item, { foreignKey: 'userId' });
