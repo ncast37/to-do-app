@@ -1,5 +1,5 @@
-const { User } = require('../database');
-const { List } = require('../database');
+const { User } = require('../../database');
+const { List } = require('../../database');
 
 async function createUser(req, res, next) {
     console.log('creating user')
@@ -42,7 +42,11 @@ async function createUser(req, res, next) {
     // Send to database
     try {
         await User.register(username, email, password, admin)
-        res.status(201).json({ message: "User created successfully" })
+
+        //direct to home page
+        res.redirect('/user/home')
+
+
         return
     }
     catch (err) {

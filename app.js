@@ -10,8 +10,8 @@ const { createUser,
     checkAuth,
     createList,
     getLists,
-    deleteSelectedList } = require('./controllers/usercontroller.js')
-const { createItem, getItemsbyList, getAllItemsbyUser, deleteSelectedItemByUser, deleteAllItemsbyUser } = require('./controllers/itemcontroller.js')
+    deleteSelectedList } = require('./src/controllers/usercontroller.js')
+const { createItem, getItemsbyList, getAllItemsbyUser, deleteSelectedItemByUser, deleteAllItemsbyUser } = require('./src/controllers/itemcontroller.js')
 
 app.use(express.json());
 app.use(express.static('public'));

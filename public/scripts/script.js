@@ -1,13 +1,17 @@
-import authfunction from './auth.js';
+// import response from 'express';
+import authenticate from './authService.js';
 
 
 
 const signUpButton = document.querySelector('#signup-btn');
 
-
-signUpButton.addEventListener('click', (e) => {
+// Signup process begins here
+document.querySelector('form').addEventListener('submit', (e) => {
+    console.time('signupEvent')
     e.preventDefault();
 
+
+    // create request object with form data
     const request = {
         body: {
             username: document.querySelector('#username').value,
@@ -16,30 +20,38 @@ signUpButton.addEventListener('click', (e) => {
         }
     }
 
-    let auth = authfunction(request);
+    //create auth object with request object
+    let auth = authenticate(request);
 
-
-
-    if (!auth.validateUsername()) {
-
-        console.log('Invalid username');
-        return;
-
-    }
-
-    if (!auth.validatePassword()) {
-
-        console.log('Invalid password');
-        return;
-
-    }
-
-    if (!auth.validateEmail()) {
-
-        console.log('Invalid email');
+    //run validator functions against desired fields
+    const fieldsToValidate = ['username', 'password', 'email'];
+    let invalidField = auth.validateFields(fieldsToValidate);
+    if (invalidField) {
+        console.log(`Invalid ${invalidField}`);
+        console.timeEnd('signupEvent')
         return;
     }
 
-    console.log('Valid username and password');
-});
+    //send to server
+
+    fetch('/user/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: request.body.username,
+            email: request.body.email,
+            password: request.body.password,
+            admin: false
+        })
+    })
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log(data);
+        //     console.timeEnd('signupEvent')
+        // })
+        .catch(err => console.log(err))
+})
+
 
